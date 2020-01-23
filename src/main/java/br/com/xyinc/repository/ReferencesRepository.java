@@ -16,7 +16,7 @@ public interface ReferencesRepository
 	 * @param X value coordinate X
 	 * @param Y value coordinate Y
 	 * @param M value max distance
-	 * @return: Distance between two points
+	 * @return: Points
 	 * 
 	 */
 	
