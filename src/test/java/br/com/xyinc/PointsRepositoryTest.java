@@ -93,8 +93,7 @@ public class PointsRepositoryTest {
 																reference.getX(),
 																reference.getY(),
 																reference.getM()
-																);
-			
+																);	
 			assertThat(foundPoints.size()).isEqualTo(4);
 		}
 		
