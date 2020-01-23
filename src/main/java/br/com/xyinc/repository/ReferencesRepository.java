@@ -9,18 +9,18 @@ import br.com.xyinc.model.Points;
 
 public interface ReferencesRepository
 		extends CrudRepository<Points, Long> {
-	/* 
+	
+
+/* 
 	 * Developer: Leonardo Patrick
 	 * Reference: https://www.educamaisbrasil.com.br/enem/matematica/distancia-entre-dois-pontos
 	 * 
 	 * @param X value coordinate X
 	 * @param Y value coordinate Y
 	 * @param M value max distance
-	 * @return: Distance between two points
+	 * @return: Points 
 	 * 
 	 */
-	
-	
 	@Query("SELECT c FROM "
 			+ " Points c "
 			+ " WHERE "
