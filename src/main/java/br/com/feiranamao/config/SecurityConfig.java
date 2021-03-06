@@ -47,40 +47,41 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	public void configure(HttpSecurity http) throws Exception {
  
 		  http.authorizeRequests()
-	        .antMatchers("swagger.json","/login",
-	         		  "/ide/**"
-	        		,"/v2/"
-	        		,"/v2/**"
-        		  , "/resources/**"
-        		  ,"/webjars/**", "/swagger/**"
-        		  ,"/css/**"
-        		  ,"/configuration/**"
-        		  ,"/swagger-resources/**"
-        		  , "/v2/api-docs",
-	        		"/swagger/**",
-	        		"/v3/**"
-	        		,"/v2/api-docs/**"
-	        		,"/api-docs/"
-	        		,"/api-docs/**"
-	        		,"/v3/api-docs"
-	        		,"/v3/api-docs/**", 
-	        		"/configuration/ui",
-	        		"/swagger-resources",
-	        		"/configuration/security",
-	        		"/swagger-ui.html",
-	        		"/webjars/**",
-	        		"/swagger-resources/configuration/ui", 
-	        		"/swagger-ui.html",
-	        		"/swagger-resources/configuration/security",
-	        		"/swagger-ui/**"
-	        		,"/error/**"
-	        		,"/v2/api-docs/.yaml"
-	        		,"/v2/api-docs/swagger-config"
-	        		,"/participant/**"
-	        		,"/swagger-ui/"
-	        		,"/swagger-ui/**"
-	        		,"/swagger-ui"
-	        		).permitAll()
+	        .antMatchers(
+	        		 "swagger.json"
+            		,"/login"
+	         		,"/ide/**"
+  	        		,"/v2/"
+  	        		,"/v2/**"
+            		, "/resources/**"
+            		,"/webjars/**", "/swagger/**"
+            		,"/css/**"
+            		,"/configuration/**"
+            		,"/swagger-resources/**"
+            		, "/v2/api-docs"
+  	        		,"/swagger/**"
+  	        		,"/v3/**"
+  	        		,"/v2/api-docs/**"
+  	        		,"/api-docs/"
+  	        		,"/api-docs/**"
+  	        		,"/v3/api-docs"
+  	        		,"/v3/api-docs/**" 
+  	        		,"/configuration/ui"
+  	        		,"/swagger-resources"
+  	        		,"/configuration/security"
+  	        		,"/swagger-ui.html"
+  	        		,"/webjars/**"
+  	        		,"/swagger-resources/configuration/ui" 
+  	        		,"/swagger-ui.html"
+  	        		,"/swagger-resources/configuration/security"
+  	        		,"/swagger-ui/**"
+  	        		,"/error/**"
+  	        		,"/v2/api-docs/.yaml"
+  	        		,"/v2/api-docs/swagger-config"
+  	        		,"/participant/**"
+  	        		,"/swagger-ui/"
+  	        		,"/swagger-ui/**"
+  	        		,"/swagger-ui").permitAll()
 	        .antMatchers("/admin/**").hasRole("ADMIN")
 	        .antMatchers("/**","/produtos/**","/produtos").hasAnyRole("ADMIN", "USER")
 	        .and().formLogin()
@@ -93,32 +94,34 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
       public void configure(WebSecurity web) throws Exception {
               web.ignoring()
               // Spring Security should completely ignore URLs starting with /resources/
-                              .antMatchers("swagger.json","/login",
-                	         		  "/ide/**"
+                              .antMatchers(
+                            		"swagger.json"
+                            		,"/login"
+                	         		,"/ide/**"
                   	        		,"/v2/"
                   	        		,"/v2/**"
-                            		  , "/resources/**"
-                            		  ,"/webjars/**", "/swagger/**"
-                            		  ,"/css/**"
-                            		  ,"/configuration/**"
-                            		  ,"/swagger-resources/**"
-                            		  , "/v2/api-docs",
-                  	        		"/swagger/**",
-                  	        		"/v3/**"
+                            		, "/resources/**"
+                            		,"/webjars/**", "/swagger/**"
+                            		,"/css/**"
+                            		,"/configuration/**"
+                            		,"/swagger-resources/**"
+                            		, "/v2/api-docs"
+                  	        		,"/swagger/**"
+                  	        		,"/v3/**"
                   	        		,"/v2/api-docs/**"
                   	        		,"/api-docs/"
                   	        		,"/api-docs/**"
                   	        		,"/v3/api-docs"
-                  	        		,"/v3/api-docs/**", 
-                  	        		"/configuration/ui",
-                  	        		"/swagger-resources",
-                  	        		"/configuration/security",
-                  	        		"/swagger-ui.html",
-                  	        		"/webjars/**",
-                  	        		"/swagger-resources/configuration/ui", 
-                  	        		"/swagger-ui.html",
-                  	        		"/swagger-resources/configuration/security",
-                  	        		"/swagger-ui/**"
+                  	        		,"/v3/api-docs/**" 
+                  	        		,"/configuration/ui"
+                  	        		,"/swagger-resources"
+                  	        		,"/configuration/security"
+                  	        		,"/swagger-ui.html"
+                  	        		,"/webjars/**"
+                  	        		,"/swagger-resources/configuration/ui" 
+                  	        		,"/swagger-ui.html"
+                  	        		,"/swagger-resources/configuration/security"
+                  	        		,"/swagger-ui/**"
                   	        		,"/error/**"
                   	        		,"/v2/api-docs/.yaml"
                   	        		,"/v2/api-docs/swagger-config"
