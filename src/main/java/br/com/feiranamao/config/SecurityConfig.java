@@ -1,11 +1,16 @@
 package br.com.feiranamao.config;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
@@ -15,6 +20,28 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
 @EnableAuthorizationServer
 @EnableResourceServer
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+	
+	
+	@Bean
+	@Override
+	protected AuthenticationManager authenticationManager() throws Exception {
+		// TODO Auto-generated method stub
+		return super.authenticationManager();
+	}
+	
+  @Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		// TODO Auto-generated method stub
+		auth.inMemoryAuthentication()
+		.withUser("feiraadmin")
+		.password("feiraadmin")
+		.roles("ADMIN");
+	}
+	
+   @Bean
+   public PasswordEncoder passwordEncoder() {
+	return NoOpPasswordEncoder.getInstance();
+   }
 	
 	 @Override
 	public void configure(HttpSecurity http) throws Exception {
@@ -102,40 +129,3 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
       }
 
 }
-
-/*@EnableAuthorizationServer
-@EnableResourceServer*/
-
-/*"/**","/login",
-	         		  "/ide/**"
-	        		,"/v2/"
-	        		,"/v2/**"
-          		  , "/resources/**"
-          		  ,"/webjars/**", "/swagger/**"
-          		  ,"/css/**"
-          		  ,"/configuration/**"
-          		  ,"/swagger-resources/**"
-          		  , "/v2/api-docs",
-	        		"/swagger/**",
-	        		"/v3/**"
-	        		,"/v2/api-docs/**"
-	        		,"/api-docs/"
-	        		,"/api-docs/**"
-	        		,"/v3/api-docs"
-	        		,"/v3/api-docs/**", 
-	        		"/configuration/ui",
-	        		"/swagger-resources",
-	        		"/configuration/security",
-	        		"/swagger-ui.html",
-	        		"/webjars/**",
-	        		"/swagger-resources/configuration/ui", 
-	        		"/swagger-ui.html",
-	        		"/swagger-resources/configuration/security",
-	        		"/swagger-ui/**"
-	        		,"/error/**"
-	        		,"/v2/api-docs/.yaml"
-	        		,"/v2/api-docs/swagger-config"
-	        		,"/participant/**"
-	        		,"/swagger-ui/"
-	        		,"/swagger-ui/**"
-	        		,"/swagger-ui"*/

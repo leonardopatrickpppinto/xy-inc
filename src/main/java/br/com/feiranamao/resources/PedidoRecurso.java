@@ -46,7 +46,7 @@ public class PedidoRecurso  {
     	Set<ItemPedido> itens = pedido.getItemPedido();
     	
     	for(ItemPedido item : itens) {
-    		item.setValorTotal(item.getValorUnitario()*item.getQuantidade());
+    	item.setValorTotal(item.getValorUnitario()*item.getQuantidade());
     		
     	}
     	
