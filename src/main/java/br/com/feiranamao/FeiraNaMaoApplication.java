@@ -1,13 +1,13 @@
-package br.com.xyinc;
+package br.com.feiranamao;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class XYIncApplication {
+public class FeiraNaMaoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(XYIncApplication.class, args);
+		SpringApplication.run(FeiraNaMaoApplication.class, args);
 		}
 	
     
